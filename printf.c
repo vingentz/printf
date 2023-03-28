@@ -2,6 +2,12 @@
 #include <stdarg.h>
 #include "main.h"
 
+/**
+ * _printf - main entry point
+ * @format: string containing all characters
+ * Return: count of characters
+ */
+
 int _printf(const char *format, ...)
 {
 	int count = 0;
