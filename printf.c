@@ -6,12 +6,16 @@ int _printf(const char *format, ...)
 {
 	int count = 0;
 	va_list args;
+
 	va_start(args, format);
 
-	while (*format != '\0') {
-		if (*format == '%') {
-			format++; // skip over the %
-			switch (*format) {
+	while (*format != '\0')
+	{
+		if (*format == '%')
+		{
+			format++;
+			switch (*format)
+			{
 				case 'c':
 					putchar(va_arg(args, int));
 					count++;
@@ -25,14 +29,16 @@ int _printf(const char *format, ...)
 					break;
 				default:
 					fprintf(stderr, "Error: invalid conversion specifier '%%%c'\n", *format);
-					return -1;
+					return (-1);
 			}
-		} else {
+		}
+		else
+		{
 			putchar(*format);
 			count++;
 		}
 		format++;
 	}
 	va_end(args);
-	return count;
+	return (count);
 }
