@@ -7,20 +7,22 @@
 
 
 /**
- * struct conversion_specifier - contains two fields: symbol, a string that represents a specific conversion specifier
+ * struct conversion_specifier - contains two fields: symbol,
+ * a string that represents a specific conversion specifier
  * and func a pointer to a function that takes in a va_list as an
  * argument and handles the corresponding conversion specifier.
  * The struct is then given an alias conver_t for easier
  * reference throughout the rest of the code.
- * @symbol: A string containing the symbol that represents a specific conversion specifier
+ * @symbol: A string containing the symbol
+ * that represents a specific conversion specifier
  * (e.g. 'c' for character, 's' for string, etc.)
  * @func: A pointer to a function that takes in a va_list
  * as an argument and handles the corresponding conversion specifier
  */
 struct conversion_specifier
 {
-		char *symbol;
-			int (*func)(va_list);
+	char *symbol;
+	int (*func)(va_list);
 };
 
 /* Define an alias for the struct conversion_specifier */
@@ -48,7 +50,8 @@ int _writechar(char c);
  * @arg_list: variable argument list
  * Return: the number of characters printed
  */
-int parser(const char *main_string, conver_t function_list[], va_list arg_list);
+int parser(
+		const char *main_string, conver_t function_list[], va_list arg_list);
 
 /**
  * print_character - function that prints a single character
