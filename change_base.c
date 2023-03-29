@@ -56,13 +56,12 @@ int print_octal(va_list arg_list)
 	char *reversed_str;
 
 	input_num = va_arg(arg_list, unsigned int);
-	
+
 	/*check for invalid input */
 	if (input_num == 0)
 		return (_writechar('0'));
 	if (input_num < 1)
 		return (-1);
-
 	/*get the length of the octal representation */
 	length = base_length(input_num, 8);
 
@@ -70,7 +69,6 @@ int print_octal(va_list arg_list)
 	octal_representation = malloc(sizeof(char) * length + 1);
 	if (octal_representation == NULL)
 		return (-1);
-
 	/*convert input to octal representation */
 	for (length = 0; input_num > 0; length++)
 	{
@@ -79,15 +77,12 @@ int print_octal(va_list arg_list)
 	}
 
 	octal_representation[length] = '\0';
-
 	/*reverse the octal representation */
 	reversed_str = reverse_string(octal_representation);
 	if (reversed_str == NULL)
 		return (-1);
-
 	/*write the octal representation to the output */
 	write_string(reversed_str);
-
 	/*Free allocated memory*/
 	free(octal_representation);
 	free(reversed_str);
