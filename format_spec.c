@@ -69,12 +69,13 @@ int print_u_number(unsigned int n)
 	num = n;
 
 	for (; num / div > 9; )
-		div *= 10;
+		div *= 10
+			;
 	for (; div != 0; )
-		{
-			len += _writechar('0' + num / div);
-			num %= div;
-			div /= 10;
+	{
+		len += _writechar('0' + num / div);
+		num %= div;
+		div /= 10;
 		}
 	return (len);
 }
