@@ -11,7 +11,8 @@ int print_s_int(va_list args)
 	int div;
 	int len;
 	unsigned int num;
-	n  = va_arg(args, int);
+
+	n = va_arg(args, int);
 	div = 1;
 	len = 0;
 
@@ -44,6 +45,7 @@ int print_s_int(va_list args)
 int print_unsigned_integer(va_list arg_list)
 {
 	unsigned int number;
+
 	number = va_arg(arg_list, unsigned int);
 
 	if (number == 0)
