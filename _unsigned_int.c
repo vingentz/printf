@@ -45,7 +45,7 @@ int print_s_int(va_list args)
 int print_unsigned_integer(va_list arg_list)
 {
 	unsigned int number;
-	
+
 	number = va_arg(arg_list, unsigned int);
 
 	if (number == 0)
