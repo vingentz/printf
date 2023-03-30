@@ -22,9 +22,7 @@ int print_hex_lo(va_list arg_list)
 	if (decimal_num == 0)
 	{
 		return (_writechar('0'));
-
 	}
-
 	if (decimal_num < 1)
 	{
 		return (-1);
@@ -32,9 +30,7 @@ int print_hex_lo(va_list arg_list)
 	len = base_length(decimal_num, 16);
 	hex_representation = malloc(sizeof(char) * len + 1);
 	if (hex_representation == NULL)
-	{
 		return (-1);
-	}
 	for (len = 0; decimal_num > 0; len++)
 	{
 		remainder = decimal_num % 16;
@@ -44,19 +40,14 @@ int print_hex_lo(va_list arg_list)
 			hex_representation[len] = remainder;
 		}
 		else
-		{
 			hex_representation[len] = remainder + 48;
-		}
-
 		decimal_num = decimal_num / 16;
 	}
 	hex_representation[len] = '\0';
 	reversed_hex = reverse_string(hex_representation);
 	if
 		(reversed_hex == NULL)
-		{
 			return (-1);
-		}
 	write_string(reversed_hex);
 	free(hex_representation);
 	free(reversed_hex);
