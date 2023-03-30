@@ -1,11 +1,14 @@
 #include "main.h"
 
 /**
- * print_hex_lo - takes an unsigned int from a va_list and converts it to its
+ * print_hex_lo - takes in an unsigned int from a va_list
+ * and converts it to its
  * hexadecimal representation. It then writes the hexadecimal representation to
  * stdout.
+ * @arg_list: List name of arguments of the current function
+ *
  * @arg_list: va_list containing the unsigned int to be converted
- * @Return: length of the hexadecimal representation on success
+ * Return: length of the hexadecimal representation on success, -1 on failure
  */
 int print_hex_lo(va_list arg_list)
 {
@@ -19,13 +22,17 @@ int print_hex_lo(va_list arg_list)
 	if (decimal_num == 0)
 	{
 		return (_writechar('0'));
+
 	}
+
 	if (decimal_num < 1)
 	{
 		return (-1);
 	}
+	/*Get the length of thehex representation*/
 	len = base_length(decimal_num, 16);
-	hex_representation = malloc(sizeof(char) *len + 1);
+	/*Allocate memory for the hex representation*/
+	hex_representation = malloc(sizeof(char) * len + 1);
 	if (hex_representation == NULL)
 	{
 		return (-1);
@@ -42,6 +49,7 @@ int print_hex_lo(va_list arg_list)
 		{
 			hex_representation[len] = remainder + 48;
 		}
+
 		decimal_num = decimal_num / 16;
 	}
 	hex_representation[len] = '\0';
@@ -56,9 +64,11 @@ int print_hex_lo(va_list arg_list)
 	return (len);
 }
 /**
- * print_hex_cap - converts the first argument of the va_list to an uppercase hexadecimal representation
+ * print_hex_cap - converts the first argument of the va_list
+ * to an uppercase hexadecimal representation
  * and writes it to the standard output
  * @list: va_list containing the argument to be converted
+ *
  * Return: the length of the hexadecimal representation
  * -1 if the decimal number is less than 1
  * -1 if memory allocation fails
@@ -77,10 +87,8 @@ int print_hex_cap(va_list list)
 		return (_writechar('0'));
 	if (decimal_num < 1)
 		return (-1);
-
 	rep_len = base_length(decimal_num, 16);
-	hex_rep = malloc(sizeof(char) *rep_len + 1);
-
+	hex_rep = malloc(sizeof(char) * rep_len + 1);
 	if (hex_rep == NULL)
 		return (-1);
 	for (rep_len = 0; decimal_num > 0; rep_len++)
@@ -99,7 +107,6 @@ int print_hex_cap(va_list list)
 	}
 	hex_rep[rep_len] = '\0';
 	reversed_hex = reverse_string(hex_rep);
-
 	if (reversed_hex == NULL)
 		return (-1);
 	write_string(reversed_hex);
@@ -108,11 +115,12 @@ int print_hex_cap(va_list list)
 	return (rep_len);
 }
 /**
- * hex_check - Checks which hex function is calling it
- * @num - Number to convert into letter
+ * hex_check - Check which hex functionis calling it
+ * @num: Number to convert into letter
  * @x: Tells which hex function is calling it
  * Return: Ascii value for a letter
  */
+
 int hex_check(int num, char x)
 {
 	char *hex = "abcdef";
