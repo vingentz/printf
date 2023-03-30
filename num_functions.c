@@ -29,9 +29,7 @@ int print_hex_lo(va_list arg_list)
 	{
 		return (-1);
 	}
-	/*Get the length of thehex representation*/
 	len = base_length(decimal_num, 16);
-	/*Allocate memory for the hex representation*/
 	hex_representation = malloc(sizeof(char) * len + 1);
 	if (hex_representation == NULL)
 	{
@@ -54,10 +52,11 @@ int print_hex_lo(va_list arg_list)
 	}
 	hex_representation[len] = '\0';
 	reversed_hex = reverse_string(hex_representation);
-	if (reversed_hex == NULL)
-	{
-		return (-1);
-	}
+	if
+		(reversed_hex == NULL)
+		{
+			return (-1);
+		}
 	write_string(reversed_hex);
 	free(hex_representation);
 	free(reversed_hex);
